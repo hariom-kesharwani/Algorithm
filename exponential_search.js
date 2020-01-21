@@ -12,22 +12,17 @@ class Search {
         }else if(this.elements[0]>this.x){
         	return -1;
         }
-        let i=1;
+        var i=1;
     	while(i<this.elements.length && this.elements[i]<=this.x){
         	i= i*2;
         
         }
         
-        let ind= this.binarySearch(i/2,Math.min(i,this.elements.length))
-        
-        alert('index==='+ind);
-        
+        return this.binarySearch(i/2,Math.min(i,this.elements.length))
     }
     
     binarySearch(s,e){
-    	alert(s);
-        alert(e);
-        if(this.binarySearch[s]==this.x){
+    	if(this.binarySearch[s]==this.x){
         	return s;
         }else if(this.binarySearch[e]==this.x){
         	return e;
@@ -35,7 +30,7 @@ class Search {
         
         
         if(e>=s){
-        	let mid= Math.floor(s+ (e-s)/2);
+        	var mid= Math.floor(s+ (e-s)/2);
             if(this.elements[mid]==this.x){
             
             	return mid;
@@ -53,11 +48,15 @@ class Search {
         
   
     }
-    
-    
-
 }
 
 search = new Search();
 
-search.expSearch();
+let ind= search.expSearch();
+
+if(ind===-1){
+    console.log('Not found');
+}else{
+    console.log(`Number found at index ${ind}`);
+}
+
